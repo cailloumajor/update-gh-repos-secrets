@@ -1,6 +1,6 @@
 # GitHub repositories secrets updater
 
-Uses [GitHub Go SDK](https://github.com/octokit/go-sdk) to find repositories for a provided user, that are active and not forks, and update a secret if they already have a value for it.
+Uses [GitHub Go SDK](https://github.com/octokit/go-sdk) to find repositories for an user authenticated with an access token, that are active and not forks, and update a secret if they already have a value for it.
 
 ## Inputs
 
