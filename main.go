@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/kelseyhightower/envconfig"
 )
 
@@ -22,9 +23,14 @@ func main() {
 		os.Exit(exitCode)
 	}()
 
+	if err := godotenv.Load(); err != nil {
+		log.Println("error loading environment variables from `.env` file:", err)
+		exitCode = 1
+		return
+	}
+
 	var cfg Config
-	err := envconfig.Process("", &cfg)
-	if err != nil {
+	if err := envconfig.Process("", &cfg); err != nil {
 		log.Println("error getting configuration from environment:", err)
 		exitCode = 1
 		return

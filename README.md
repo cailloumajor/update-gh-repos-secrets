@@ -4,7 +4,7 @@ Uses [GitHub Go SDK](https://github.com/octokit/go-sdk) to find repositories for
 
 ## Inputs
 
-Required options are taken from environment variables, as below.
+Required options are taken from environment variables, as below. The environment variables are expected to be provided from a `.env` file.
 
 * `AUTH_TOKEN`: the GitHub PAT with following permissions
   * "Metadata" repository permissions (read);
