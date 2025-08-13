@@ -1,6 +1,6 @@
 module github.com/cailloumajor/update-gh-repos-secrets
 
-go 1.24.6
+go 1.24
 
 require (
 	github.com/google/go-github/v74 v74.0.0
