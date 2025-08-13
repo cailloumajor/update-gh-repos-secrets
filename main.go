@@ -9,6 +9,7 @@ import (
 	"github.com/kelseyhightower/envconfig"
 )
 
+// Config holds the configuration of the program.
 type Config struct {
 	AuthToken   string `required:"true" split_words:"true"`
 	SecretName  string `required:"true" split_words:"true"`

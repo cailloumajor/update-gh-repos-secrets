@@ -10,7 +10,7 @@ import (
 	"golang.org/x/crypto/nacl/box"
 )
 
-// / Represents a GitHub repository
+// Repository represents a GitHub repository
 type Repository struct {
 	owner string
 	name  string
@@ -25,13 +25,16 @@ type GitHubAPIClient struct {
 	ic *github.Client
 }
 
-// NewGitHubApiClient returns a new API client, provided the auth token.
+// NewGitHubAPIClient returns a new API client, provided the auth token.
 func NewGitHubAPIClient(token string) *GitHubAPIClient {
 	ic := github.NewClient(nil).WithAuthToken(token)
 
 	return &GitHubAPIClient{ic}
 }
 
+// ListRepositories fetches the list of repositories for the authenticated user.
+//
+// Archived or disabled repositories are filtered out.
 func (g *GitHubAPIClient) ListRepositories(ctx context.Context) ([]Repository, error) {
 	o := &github.RepositoryListByAuthenticatedUserOptions{
 		Affiliation: "owner",
@@ -57,6 +60,7 @@ func (g *GitHubAPIClient) ListRepositories(ctx context.Context) ([]Repository, e
 	return rn, nil
 }
 
+// RepositoryHasSecret checks whether the provided repository has the provided secret.
 func (g *GitHubAPIClient) RepositoryHasSecret(ctx context.Context, repo Repository, sName string) (bool, error) {
 	o := &github.ListOptions{
 		PerPage: 100,
@@ -71,6 +75,7 @@ func (g *GitHubAPIClient) RepositoryHasSecret(ctx context.Context, repo Reposito
 	}), nil
 }
 
+// UpdateRepositorySecret updates the secret as provided for the provided repository.
 func (g *GitHubAPIClient) UpdateRepositorySecret(ctx context.Context, repo Repository, sName string, sValue string) error {
 	k, _, err := g.ic.Actions.GetRepoPublicKey(ctx, repo.owner, repo.name)
 	if err != nil {
