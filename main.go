@@ -29,7 +29,12 @@ func main() {
 		return
 	}
 
-	c := NewGitHubAPIClient(cfg.AuthToken)
+	c, err := NewGitHubAPIClient(cfg.AuthToken)
+	if err != nil {
+		log.Println("error creating the GitHub API client", err)
+		exitCode = 1
+		return
+	}
 
 	ctx := context.Background()
 
