@@ -1,5 +1,8 @@
+# $schema: https://golangci-lint.run/jsonschema/golangci.jsonschema.json
+
 version: "2"
 
 linters:
   enable:
+    - gosec
     - revive

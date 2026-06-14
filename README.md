@@ -1,10 +1,12 @@
 # GitHub repositories secrets updater
 
-Uses [GitHub Go SDK](https://github.com/octokit/go-sdk) to find repositories for an user authenticated with an access token, that are active and not forks, and update a secret if they already have a value for it.
+Uses [GitHub Go SDK](https://github.com/octokit/go-sdk) to find repositories for an user authenticated with an access
+token, that are active and not forks, and update a secret if they already have a value for it.
 
 ## Inputs
 
-Required options are taken from environment variables, as below. The environment variables are expected to be provided from a `.env` file.
+Required options are taken from environment variables, as below. The environment variables are expected to be
+configured in mise local configuration (`mise.local.toml`).
 
 * `AUTH_TOKEN`: the GitHub PAT with following permissions
   * "Metadata" repository permissions (read);
