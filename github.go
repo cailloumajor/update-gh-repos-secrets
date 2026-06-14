@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/google/go-github/v80/github"
+	"github.com/google/go-github/v88/github"
 	"golang.org/x/crypto/nacl/box"
 )
 
@@ -26,10 +26,13 @@ type GitHubAPIClient struct {
 }
 
 // NewGitHubAPIClient returns a new API client, provided the auth token.
-func NewGitHubAPIClient(token string) *GitHubAPIClient {
-	ic := github.NewClient(nil).WithAuthToken(token)
+func NewGitHubAPIClient(token string) (*GitHubAPIClient, error) {
+	ic, err := github.NewClient(github.WithAuthToken(token))
+	if err != nil {
+		return nil, err
+	}
 
-	return &GitHubAPIClient{ic}
+	return &GitHubAPIClient{ic}, nil
 }
 
 // ListRepositories fetches the list of repositories for the authenticated user.
