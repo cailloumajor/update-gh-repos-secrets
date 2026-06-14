@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/kelseyhightower/envconfig"
 )
 
@@ -22,12 +21,6 @@ func main() {
 	defer func() {
 		os.Exit(exitCode)
 	}()
-
-	if err := godotenv.Load(); err != nil {
-		log.Println("error loading environment variables from `.env` file:", err)
-		exitCode = 1
-		return
-	}
 
 	var cfg Config
 	if err := envconfig.Process("", &cfg); err != nil {
@@ -61,5 +54,4 @@ func main() {
 			}
 		}
 	}
-
 }

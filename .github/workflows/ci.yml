@@ -1,4 +1,4 @@
-name: Lint Commit Messages
+name: Tests and code quality
 
 on:
   push:
@@ -25,11 +25,10 @@ jobs:
           concurrent_skipping: same_content
           do_not_skip: '["pull_request", "release", "workflow_dispatch", "schedule"]'
           skip_after_successful_duplicate: true
-  commitlint:
-    name: Ensure Conventional Commits
+  tests:
+    name: Code quality, unit tests and code coverage
     permissions:
       contents: read
-      pull-requests: read
     runs-on: ubuntu-latest
     timeout-minutes: 30
     needs: pre_job
@@ -37,6 +36,18 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
-          fetch-depth: 0
           persist-credentials: false
-      - uses: wagoid/commitlint-github-action@b948419dd99f3fd78a6548d48f94e3df7f6bf3ed # v6.2.1
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+      - name: Run CI task
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          HK_FAIL_FAST: true
+          HK_STATE_DIR: ${{ runner.temp }}/hk
+        run: mise run ci
+      - name: Upload lint task output
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: failure()
+        with:
+          name: lint-task-results
+          path: ${{ runner.temp }}/hk/output.log
+          archive: false

@@ -1,0 +1,35 @@
+[tools]
+actionlint = "latest"
+"aqua:go-delve/delve" = "latest"
+betterleaks = "latest"
+editorconfig-checker = "latest"
+ghalint = "latest"
+go = "1.26.3"
+"go:golang.org/x/tools/cmd/goimports" = "latest"
+"go:golang.org/x/tools/gopls" = "latest"
+gofumpt = "latest"
+golangci-lint = "latest"
+golangci-lint-langserver = "latest"
+hk = "latest"
+pinact = "latest"
+pkl = "latest"
+rumdl = "latest"
+tombi = "latest"
+typos = "latest"
+zizmor = "latest"
+
+[hooks]
+enter = "mise outdated --local --silent"
+
+[tasks.lint]
+description = "Run hk lints"
+run = "hk check --all"
+
+[tasks.build]
+description = "Build the binary"
+run = "go build -v ./..."
+
+[tasks.ci]
+description = "Run CI tasks"
+depends = ["lint", "build"]
+run = "echo 'CI completed successfully'"
