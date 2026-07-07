@@ -5,7 +5,8 @@
     "helpers:pinGitHubActionDigestsToSemver"
   ],
   "postUpdateOptions": [
-    "gomodTidy"
+    "gomodTidy",
+    "gomodUpdateImportPaths"
   ],
   "semanticCommits": "enabled",
   "packageRules": [
