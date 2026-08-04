@@ -102,13 +102,12 @@ func (g *GitHubAPIClient) UpdateRepositorySecret(ctx context.Context, repo Repos
 
 	e := base64.StdEncoding.EncodeToString(s)
 
-	es := &github.EncryptedSecret{
-		Name:           sName,
+	req := github.SecretRequest{
 		KeyID:          k.GetKeyID(),
 		EncryptedValue: e,
 	}
 
-	if _, err := g.ic.Actions.CreateOrUpdateRepoSecret(ctx, repo.owner, repo.name, es); err != nil {
+	if _, err := g.ic.Actions.CreateOrUpdateRepoSecret(ctx, repo.owner, repo.name, sName, req); err != nil {
 		return fmt.Errorf("error updating secret: %w", err)
 	}
 
