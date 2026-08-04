@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/google/go-github/v88/github"
+	"github.com/google/go-github/v89/github"
 	"golang.org/x/crypto/nacl/box"
 )
 
