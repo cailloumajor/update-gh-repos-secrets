@@ -1,6 +1,6 @@
 [tools]
 actionlint = "latest"
-"aqua:go-delve/delve" = "latest"
+"aqua:go-delve/delve" = "1.26.3"
 betterleaks = "latest"
 editorconfig-checker = "latest"
 ghalint = "latest"
