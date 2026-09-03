@@ -5,7 +5,7 @@ go 1.26.0
 require (
 	github.com/google/go-github/v91 v91.0.0
 	github.com/kelseyhightower/envconfig v1.4.0
-	golang.org/x/crypto v0.55.0
+	golang.org/x/crypto v0.56.0
 )
 
 require (
