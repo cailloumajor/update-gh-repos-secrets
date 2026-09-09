@@ -18,9 +18,6 @@ tombi = "latest"
 typos = "latest"
 zizmor = "latest"
 
-[settings]
-minimum_release_age = "7d"
-
 [hooks]
 enter = "mise outdated --local --silent"
 
