@@ -14,7 +14,6 @@ local linters = new Mapping<String, Step> {
   ["golangci-lint"] = Builtins.golangci_lint
   ["go-mod-tidy"] = Builtins.gomod_tidy
   ["hadolint"] = Builtins.hadolint
-  ["mise"] = Builtins.mise
   ["pinact"] = Builtins.pinact
   ["pkl"] = Builtins.pkl
   ["pkl-format"] = Builtins.pkl_format

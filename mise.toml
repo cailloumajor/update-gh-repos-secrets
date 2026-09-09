@@ -1,8 +1,8 @@
-[tools]
+[tools]  # tombi: format.rules.table-keys-order = "ascending"
 actionlint = "latest"
-"aqua:go-delve/delve" = "1.26.3"
+"aqua:go-delve/delve" = "latest"
 betterleaks = "latest"
-editorconfig-checker = "3"
+editorconfig-checker = "latest"
 ghalint = "latest"
 go = "1.27.1"
 "go:golang.org/x/tools/cmd/goimports" = "latest"
