@@ -2,7 +2,7 @@
 actionlint = "latest"
 "aqua:go-delve/delve" = "1.26.3"
 betterleaks = "latest"
-editorconfig-checker = "3"
+editorconfig-checker = "4.0.1"
 ghalint = "latest"
 go = "1.27.1"
 "go:golang.org/x/tools/cmd/goimports" = "latest"
