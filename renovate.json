@@ -18,10 +18,17 @@
   "semanticCommits": "enabled",
   "packageRules": [
     {
-      "matchManagers": [
-        "github-actions"
-      ],
-      "minimumReleaseAge": "7 days"
+      "matchManagers": ["github-actions", "gomod"],
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "matchDepTypes": ["tools"],
+      "minimumReleaseAge": "1 day"
+    },
+    {
+      "matchDepTypes": ["tools"],
+      "matchCurrentValue": "latest",
+      "enable": false
     }
   ]
 }
