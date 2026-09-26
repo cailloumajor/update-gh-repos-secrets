@@ -2,6 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
+    "helpers:goXPackagesChangelogLink",
+    "helpers:goXPackagesNameLink",
     "helpers:pinGitHubActionDigestsToSemver"
   ],
   "automergeType": "branch",
