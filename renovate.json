@@ -28,7 +28,7 @@
     {
       "matchDepTypes": ["tools"],
       "matchCurrentValue": "latest",
-      "enable": false
+      "enabled": false
     }
   ]
 }
