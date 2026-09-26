@@ -9,6 +9,7 @@
   "automergeType": "branch",
   "lockFileMaintenance": {
     "enabled": true,
+    "schedule": ["* 0-4 * * *"],
     "automerge": true
   },
   "postUpdateOptions": [
