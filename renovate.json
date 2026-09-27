@@ -17,16 +17,15 @@
     "gomodUpdateImportPaths"
   ],
   "semanticCommits": "enabled",
+  "minimumReleaseAge": "3 days",
   "packageRules": [
     {
-      "matchManagers": ["github-actions", "gomod"],
-      "minimumReleaseAge": "3 days"
+      "description": "Do not require Minimum Release Age for update types that are controlled by the package manager",
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "minimumReleaseAge": null
     },
     {
-      "matchDepTypes": ["tools"],
-      "minimumReleaseAge": "1 day"
-    },
-    {
+      "description": "Disable update PRs (in favor of lock file maintenance) for mise tools with requested version being latest",
       "matchDepTypes": ["tools"],
       "matchCurrentValue": "latest",
       "enabled": false
