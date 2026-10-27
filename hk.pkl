@@ -5,7 +5,6 @@ import "package://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Builtins.
 steps {
   ["betterleaks"] = Builtins.betterleaks
   ["editorconfig-checker"] = Builtins.editorconfig_checker
-  ["ghalint"] = Builtins.ghalint_workflow
   ["gofumpt"] = (Builtins.go_fumpt) {
     check = "gofumpt -d {{files}}"
   }
@@ -14,7 +13,6 @@ steps {
   ["go-mod-tidy"] = Builtins.gomod_tidy
   ["hadolint"] = Builtins.hadolint
   ["jactionlint"] = Builtins.jactionlint
-  ["pinact"] = Builtins.pinact
   ["pkl"] = Builtins.pkl
   ["pkl-format"] = Builtins.pkl_format
   ["rumdl"] = Builtins.rumdl
